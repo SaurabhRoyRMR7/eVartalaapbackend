@@ -40,7 +40,7 @@ const server=app.listen(PORT, () => console.log(`Server Port: ${PORT}`));;
 
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, "public/images");
+      cb(null, "https://evartalaapbackendserver.onrender.com/public/images");
     },
     filename: (req, file, cb) => {
       cb(null, req.body.name);
