@@ -5,9 +5,7 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const multer = require("multer");
-// const userRoute = require("./routes/users");
-// const authRoute = require("./routes/auth");
-// const postRoute = require("./routes/posts");
+
 const router = express.Router();
 const path = require("path");
 const cors=require("cors");
@@ -17,20 +15,14 @@ app.use(express.static('public'));
 app.use('/images', express.static('images'));
 dotenv.config();
 
-// mongoose.connect(
-//   process.env.MONGO_URL,
-//   { useNewUrlParser: true, useUnifiedTopology: true },
-//   () => {
-//     console.log("Connected to MongoDB");
-//   }
-// );
+
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 app.use(cors());
 
 const PORT = process.env.PORT || 8800;
-//const server=8900;
+
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -82,10 +74,7 @@ const server=app.listen(PORT, () => console.log(`Server Port: ${PORT}`));;
 
   
   app.use(require('./router/auth'));
-//middleware
-// app.use(express.json())t());
-// app.use(morgan("common"));
-// app.use(cors());
+
 
 const io = require("socket.io")(server, {
   cors: {
