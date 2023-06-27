@@ -11,7 +11,8 @@ const path = require("path");
 const cors=require("cors");
 const cookieParser=require('cookie-parser');
 app.use(cookieParser());
-app.use(express.static('public')); 
+app.use(express.static(path.join(__dirname,'/public'))); 
+
 app.use('/images', express.static('images'));
 dotenv.config();
 
